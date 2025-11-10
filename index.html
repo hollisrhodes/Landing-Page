@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- START: SEO / LLM Optimization --><title>Green Ledger | Simple, Expert-Backed Grocery Guidance</title>
+    
+    <!-- This description is written to attract your ICP and be used by LLMs --><meta name="description" content="Stop feeling overwhelmed by contradictory nutrition advice. Green Ledger gives busy, health-conscious professionals simple, expert-backed guidance on exactly which food products are 'worth it.' Get confidence in your grocery choices.">
+    
+    <!-- Open Graph (Facebook, LinkedIn, etc.) & LLM Tags --><meta property="og:title" content="Green Ledger | Simple, Expert-Backed Grocery Guidance">
+    <meta property="og:description" content="Tired of rigid, confusing health apps? Green Ledger provides clear, simple grocery guidance for busy professionals who value their health.">
+    <meta property="og:type" content="website">
+    <!-- TODO: Update this URL to your final domain when you go live --><meta property="og:url" content="https://greenledger.biz"> 
+    <!-- TODO: Create a 1200x630px social sharing image, upload it, and uncomment the line below --><!-- <meta property="og:image" content="social-share.png"> --><!-- Twitter Card Tags --><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Green Ledger | Simple, Expert-Backed Grocery Guidance">
+    <meta name="twitter:description" content="Tired of rigid, confusing health apps? Green Ledger provides clear, simple grocery guidance for busy professionals who value their health.">
+    <!-- TODO: Make sure your social-share.png is uploaded and uncomment the line below --><!-- <meta name="twitter:image" content="social-share.png"> --><!-- END: SEO / LLM Optimization --><!-- 1. Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Load Google Fonts - UPDATED --><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Updated to match the typography brief: Newsreader (400, 800) and Source Serif 4 (Italic). Kept Inter for UI. --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Newsreader:wght@400;800&family=Source+Serif+4:ital@1&display=swap" rel="stylesheet">
+
+    <!-- 3. Custom Styles & Animations --><style>
+        body {
+            /* Body Copy: Source Serif 4, Italic */
+            font-family: 'Source Serif 4', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: #1D3508; /* Dark Green */
+            background-color: #FFFFF; 
+        }
+
+        /* UI Elements: Inter, sans-serif */
+        button, input, textarea {
+            font-family: 'Newsreader', serif;
+            font-style: normal; /* Override body italic */
+        }
+        
+        /* Primary Headline: Newsreader, Superbold (using 800) */
+        /* UPDATED: Made 'header h1' more specific to ensure it overrides any other rules */
+        /* ADDED: 'header a' to make the button Newsreader Superbold */
+        header h1, h2, h3 {
+            font-family: 'Newsreader', serif;
+            font-weight: 800;
+            font-style: normal; /* Override body italic */
+        }
+
+        /* Make header button Newsreader */
+        header a {
+            font-family: 'Newsreader', serif;
+            font-weight: 800;
+            font-style: normal; /* Override body italic */
+        }
+
+        /* Sub Headline: Newsreader, Regular */
+        .sub-headline, h4, #form-section label {
+            font-family: 'Source Serif 4', serif;
+            font-weight: 400;
+            font-style: italic; /* Override body italic */
+        }
+        
+        /* Ensure strong tags in body copy are bold-italic */
+        strong {
+            font-weight: 700; /* Will inherit italic style */
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .icon-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Sits behind the content */
+        }
+
+        .floating-icon {
+            position: absolute;
+            animation: float 10s ease-in-out infinite;
+            will-change: transform;
+            opacity: 0.9;
+        }
+        
+        .floating-icon img {
+            width: 100%;
+            height: auto;
+            transform: rotate(-5deg); /* Match screenshot tilt */
+        }
+        
+        /* Icon Positions - 17 icons */
+        /* Adjusted icon14 (pasta) to be further left */
+        #icon1 { top: 5%; left: 20%; width: 130px; animation-duration: 12s; }
+        #icon2 { top: 20%; left: 75%; width: 90px; animation-duration: 9s; animation-delay: -3s; }
+        #icon3 { top: 30%; left: 10%; width: 110px; animation-duration: 8s; animation-delay: -1s; }
+        #icon4 { top: 30%; left: 85%; width: 130px; animation-duration: 11s; animation-delay: -5s; }
+        #icon5 { top: 50%; left: 20%; width: 110px; animation-duration: 10s; animation-delay: -2s; }
+        #icon6 { top: 60%; left: 70%; width: 110px; animation-duration: 13s; animation-delay: -4s; }
+        #icon7 { top: 75%; left: 15%; width: 110px; animation-duration: 9s; animation-delay: -7s; }
+        #icon8 { top: 80%; left: 80%; width: 110px; animation-duration: 12s; animation-delay: -6s; }
+        #icon9 { top: 10%; left: 40%; width: 110px; animation-duration: 10s; animation-delay: -1s; }
+        #icon10 { top: 75%; left: 50%; width: 110px; animation-duration: 8s; animation-delay: -3s; }
+        #icon11 { top: 65%; left: 5%; width: 110px; animation-duration: 11s; animation-delay: -5s; }
+        #icon12 { top: 65%; left: 90%; width: 110px; animation-duration: 10s; animation-delay: -2s; }
+        #icon13 { top: 5%; left: 60%; width: 90px; animation-duration: 13s; animation-delay: -4s; }
+        #icon14 { top: 60%; left: 35%; width: 120px; animation-duration: 9s; animation-delay: -7s; } /* Adjusted left % */
+        #icon15 { top: 22%; left: 30%; width: 110px; animation-duration: 12s; animation-delay: -6s; }
+        #icon16 { top: 25%; left: 50%; width: 110px; animation-duration: 10s; animation-delay: -8s; }
+        #icon17 { top: 80%; left: 30%; width: 110px; animation-duration: 8s; animation-delay: -2s; }
+
+
+        @media (max-width: 768px) {
+            .floating-icon {
+                opacity: 0.9;
+            }
+            /* UPDATED: Mobile icon sizes and positions - PUSHED TO TOP/BOTTOM 
+              This creates a "safe zone" for text between ~40-60% top.
+            */
+            /* Top Group */
+            #icon1 { top: 10%; left: 10%; width: 80px; }
+            #icon3 { top: 25%; left: 15%; width: 60px; }
+            #icon9 { top: 10%; left: 40%; width: 60px; }
+            #icon13 { top: 12%; left: 65%; width: 40px; }
+            #icon15 { top: 20%; left: 30%; width: 60px; }
+            #icon16 { top: 25%; left: 48%; width: 60px; }
+            #icon2 { top: 10%; left: 85%; width: 40px; }
+            #icon4 { top: 25%; left: 65%; width: 80px; }
+            
+            /* Bottom Group */
+            #icon5 { top: 85%; left: 10%; width: 60px; } /* Was 45% */
+            #icon6 { top: 85%; left: 80%; width: 60px; } /* Was 55% */
+            #icon7 { top: 85%; left: 30%; width: 70px; }
+            #icon8 { top: 65%; left: 65%; width: 70px; }
+            #icon10 { top: 80%; left: 60%; width: 60px; }
+            #icon11 { top: 65%; left: 5%; width: 60px; }
+            #icon12 { top: 70%; left: 85%; width: 60px; }
+            #icon14 { top: 65%; left: 30%; width: 70px; } /* Was 55% */
+            #icon17 { top: 75%; left: 45%; width: 60px; }
+        }
+
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+
+    <!-- 
+      5. Header
+      UPDATED: This is now a separate block from the hero section.
+    -->
+    <header class="relative z-20 p-4 sm:p-6 md:p-8 bg-[#FFFFF]">
+        <div class="flex justify-between items-center max-w-6xl mx-auto">
+            <!-- UPDATED: Changed from text-3xl to text-2xl on mobile, scaling up at sm -->
+            <h1 class="text-2xl sm:text-3xl md:text-4xl" style="color: #334232;">Green Ledger</h1>
+            <!-- UPDATED: Changed from text-lg/px-6/py-3 to text-base/px-4/py-2 on mobile, scaling up at sm -->
+            <a href="#form-section" class="px-4 py-2 text-base sm:px-6 sm:py-3 sm:text-lg bg-[#FDE910] text-white rounded-md font-medium hover:bg-opacity-80 transition-colors" style="color: #3B2F2F;">
+                Join the Waitlist
+            </a>
+        </div>
+    </header>
+
+    <!-- 
+      This parent container is relative and overflow-hidden 
+      to contain the absolutely positioned floating icons.
+      UPDATED: Height is adjusted to account for the separate header.
+    --><div class="relative min-h-[80vh] md:min-h-[90vh] overflow-hidden">
+        
+        <!-- 4. Floating Icon Container --><div class="icon-container" aria-hidden="true">
+            <!-- 
+              UPDATED: All 17 icon <img> tags now point to your 
+              local .png files (e.g., "bread.png", "oil.png").
+              Alt text is now optimized for SEO.
+            --><div id="icon1" class="floating-icon">
+                <img src="bread.png" alt="Line drawing of artisanal bread">
+            </div>
+            <div id="icon2" class="floating-icon">
+                <img src="steak.png" alt="Line drawing of a T-bone steak">
+            </div>
+            <div id="icon3" class="floating-icon">
+                <img src="olive.png" alt="Line drawing of a ripe avocado half">
+            </div>
+            <div id="icon4" class="floating-icon">
+                <img src="chicken2.png" alt="Line drawing of a pasture-raised chicken">
+            </div>
+            <div id="icon5" class="floating-icon">
+                <img src="carrots.png" alt="Line drawing of heirloom carrots">
+            </div>
+            <div id="icon6" class="floating-icon">
+                <img src="oranges.png" alt="Line drawing of a delicata squash">
+            </div>
+            <div id="icon7" class="floating-icon">
+                <img src="fish3.png" alt="Line drawing of a wild-caught salmon">
+            </div>
+            <div id="icon8" class="floating-icon">
+                <img src="cheese1.png" alt="Line drawing of a wedge of artisanal cheese">
+            </div>
+            <div id="icon9" class="floating-icon">
+                <img src="apple.png" alt="Line drawing of a heirloom tomato">
+            </div>
+            <div id="icon10" class="floating-icon">
+                <img src="milk4.png" alt="Line drawing of a glass milk bottle">
+            </div>
+            <div id="icon11" class="floating-icon">
+                <img src="eggs3.png" alt="Line drawing of pasture-raised eggs in a carton">
+            </div>
+            <div id="icon12" class="floating-icon">
+                <img src="oyster.png" alt="Line drawing of an oyster">
+            </div>
+            <div id="icon13" class="floating-icon">
+                <img src="oil2.png" alt="Line drawing of an olive oil cruet">
+            </div>
+            <div id="icon14" class="floating-icon">
+                <img src="lobster.png" alt="Line drawing of handmade pasta">
+            </div>
+            <div id="icon15" class="floating-icon">
+                <img src="banana.png" alt="Line drawing of a moka pot">
+            </div>
+            <div id="icon16" class="floating-icon">
+                <img src="broccoli.png" alt="Line drawing of a bell pepper">
+            </div>
+            <div id="icon17" class="floating-icon">
+                <img src="cabbage.png" alt="Line drawing of wheat stalks">
+            </div>
+        </div>
+
+        <!-- 
+          This container holds the main content and sits ON TOP 
+          of the icons using z-index.
+        --><div class="relative z-10 flex flex-col min-h-[80vh] md:min-h-[90vh]">
+            
+            <!-- 6. Hero Section --><main class="flex-grow flex items-center justify-center text-center px-4">
+                <div class="space-y-2">
+                    <h2 class="text-5xl md:text-7xl">health is wealth</h2>
+                    <p class="body text-xl md:text-2xl" style="color: #34232;">
+                        how to eat like the 0.01%, but on your budget
+                    </p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- 
+      7. Form Section 
+      UPDATED: Added min-h classes to match hero section size.
+      Added flex classes to vertically center the content.
+      Removed old py- padding classes.
+    --><section id="form-section" class="bg-white min-h-[80vh] md:min-h-[90vh] flex flex-col justify-center">
+        <!-- 
+          UPDATED: Changed max-w-xl to md:max-w-3xl for a wider desktop layout.
+          max-w-xl is kept for mobile.
+        -->
+        <div class="max-w-xl md:max-w-3xl mx-auto px-4 text-center">
+
+            <!-- "Focused" Text --><div class="mb-12">
+                <h3 class="text-4xl md:text-6xl text-gray-800 mb-6" style="color: #3B2F2F;">
+                    Focused, foundational grocery guidance.
+                </h3>
+                <p class="text-lg md:text-2xl text-gray-600 leading-relaxed" style="color: #3B2F2F;">
+                    We partner with the leading experts in every food group, to tell you exactly 
+                    <strong class="font-bold text-gray-800" style="color: #3B2F2F;">what</strong> you should prioritize, 
+                    <strong class="font-bold text-gray-800" style="color: #3B2F2F;">why</strong> it matters, and 
+                    <strong class="font-bold text-gray-800" style="color: #3B2F2F;">how much</strong> it impacts your health.
+                </p>
+            </div>
+
+            <!-- 
+              FORM CONTAINER
+              This outer container controls which step is visible.
+            --><div id="waitlist-container">
+
+                <!-- 
+                  FORM 1: INITIAL EMAIL SIGNUP
+                  This form has a Netlify 'data-netlify' attribute.
+                  It will be hidden by JS on successful submission.
+                --><form id="email-form" data-netlify="true" name="waitlist-email" method="POST">
+                    <!-- Hidden input for Netlify to know which form this is --><input type="hidden" name="form-name" value="waitlist-email" />
+                    
+                    <!-- This layout is UNCHANGED from your working version --><div class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            required
+                            class="flex-grow px-4 py-3 border border-gray-200 rounded-md text-gray-900 bg-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#334232]"
+                            placeholder="name@email.com"
+                        >
+                        <button 
+                            type="submit" 
+                            class="px-6 py-3 bg-[#FDE910] text-gray-900 font-bold rounded-md hover:bg-opacity-80 transition-colors" style="color: #1D3508;"
+                        >
+                            Join the Waitlist
+                        </button>
+                    </div>
+                </form>
+
+                <!-- 
+                  FORM 2: DETAILED FOLLOW-UP
+                  This form ALSO has a Netlify 'data-netlify' attribute.
+                  It is hidden by default and shown after Form 1 succeeds.
+                --><form id="details-form" data-netlify="true" name="waitlist-details" method="POST" class="hidden">
+                    <!-- Hidden input for Netlify --><input type="hidden" name="form-name" value="waitlist-details" />
+                    <!-- Hidden input to link this submission to the original email --><input type="hidden" name="original-email" id="details-email-hidden" />
+
+                    <!-- This outer div controls which STEP of Form 2 is visible --><div id="step-container" class="text-left">
+                        
+                        <!-- Step 1: "You've been added" + User Type --><div id="step-1">
+                            <h4 class="text-2xl text-center mb-6">
+                                You've been added to the waitlist!
+                            </h4>
+                            <div class="space-y-4">
+                                <label class="block text-lg text-gray-800 text-center">
+                                    Are you an individual, expert, or company?
+                                </label>
+                                
+                                <button type="button" data-next="step-final" data-value="Individual" class="user-type-btn w-full px-6 py-3 border border-gray-300 rounded-md text-lg text-gray-800 hover:bg-gray-50">
+                                    Individual
+                                </button>
+                                <button type="button" data-next="step-expert" data-value="Expert" class="user-type-btn w-full px-6 py-3 border border-gray-300 rounded-md text-lg text-gray-800 hover:bg-gray-50">
+                                    Expert / Company
+                                </button>
+                                <button type="button" data-next="step-expert" data-value="Both" class="user-type-btn w-full px-6 py-3 border border-gray-300 rounded-md text-lg text-gray-800 hover:bg-gray-50">
+                                    Both
+                                </button>
+                                
+                                <!-- This hidden input will store the choice --><input type="hidden" name="user-type" id="user-type-hidden" />
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Expert Follow-up --><div id="step-expert" class="hidden">
+                            <div class="space-y-4">
+                                <label for="expert-details" class="block text-lg text-gray-800 text-center">
+                                    Tell us about yourself and/or your company.
+                                </label>
+                                <p class="text-sm text-gray-500 text-center -mt-2 mb-4">
+                                    What space are you an expert in (eg dairy, organic farming, food science)? What makes you an expert (e.g. PhD, James Beard nominee)? What makes your product / company the “best of the best” in your category?
+                                </p>
+                                <textarea
+                                    id="expert-details"
+                                    name="expert-details"
+                                    rows="4"
+                                    class="w-full px-4 py-3 border border-gray-200 rounded-md text-gray-900 bg-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#334232]"
+                                    placeholder="I am a..."
+                                ></textarea>
+                                
+                                <button type="submit" class="w-full px-6 py-3 bg-[#FCD900] text-gray-900 font-bold rounded-md hover:bg-opacity-80 transition-colors">
+                                    Submit Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Final Step: Thank You --><div id="step-final" class="hidden">
+                            <h4 class="text-2xl text-center mb-6">
+                                Thank you for joining!
+                            </h4>
+                            <p class="text-lg text-gray-600 text-center">
+                                We'll be in touch soon.
+                            </p>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. JavaScript for Multi-Step Form Logic --><script>
+        const emailForm = document.getElementById('email-form');
+        const detailsForm = document.getElementById('details-form');
+        const waitlistContainer = document.getElementById('waitlist-container');
+        
+        const stepContainer = document.getElementById('step-container');
+        const step1 = document.getElementById('step-1');
+        const stepExpert = document.getElementById('step-expert');
+        const stepFinal = document.getElementById('step-final');
+        
+        const userTypeButtons = document.querySelectorAll('.user-type-btn');
+        
+        // --- Form 1 (Email) Submission ---
+        emailForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop normal form submission
+
+            const formData = new FormData(emailForm);
+            const email = formData.get('email');
+            
+            // 1. Prepare data for Netlify
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                // 2. On success, hide Form 1 and show Form 2
+                emailForm.classList.add('hidden');
+                detailsForm.classList.remove('hidden');
+                
+                // 3. Pass the email to Form 2's hidden field
+                document.getElementById('details-email-hidden').value = email;
+            })
+            .catch((error) => {
+                // 4. On failure, just log an error for now
+                // In a real app, we'd show a user-facing error message
+                console.error('Error submitting email form:', error);
+                alert('Error: Could not submit form. Please try again.');
+            });
+        });
+
+        // --- Form 2 (Details) Logic ---
+        
+        // Listen for clicks on the user type buttons
+        userTypeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const userType = button.dataset.value;
+                const nextStep = button.dataset.next;
+
+                // Store the value in the hidden input for Netlify
+                document.getElementById('user-type-hidden').value = userType;
+
+                // Hide current step
+                step1.classList.add('hidden');
+
+                // Show the correct next step
+                if (nextStep === 'step-expert') {
+                    stepExpert.classList.remove('hidden');
+                } else {
+                    stepFinal.classList.remove('hidden');
+                    // This is a "fire-and-forget" submission for "Individual"
+                    // We submit Form 2 in the background
+                    submitDetailsForm();
+                }
+            });
+        });
+
+        // Handle the final submission of the details form (for Experts)
+        detailsForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop normal submission
+            
+            submitDetailsForm().then(() => {
+                // Show the final "Thank You" message
+                stepExpert.classList.add('hidden');
+                stepFinal.classList.remove('hidden');
+            });
+        });
+
+        // Helper function to submit Form 2 to Netlify
+        function submitDetailsForm() {
+            const formData = new FormData(detailsForm);
+            
+            return fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .catch((error) => {
+                console.error('Error submitting details form:', error);
+                alert('Error: Could not submit details. Please try again.');
+            });
+        }
+
+    </script>
+    
+    <!-- ADDED: Footer with Copyright -->
+    <footer class="w-full text-center py-8 bg-[#FFFFF]">
+        <p class="text-sm text-gray-500 italic">
+            &copy; 2025 Green Ledger Inc. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
+
